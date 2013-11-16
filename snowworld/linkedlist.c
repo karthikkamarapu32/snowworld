@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
- 
- 
+#include "solve.h" 
+int count(pathlist *head);
+
 void append(int num,pathlist *head)
 {
     pathlist *temp,*right;
@@ -60,7 +61,7 @@ void insert(int num,pathlist *head)
     temp=head;
     if(temp==NULL)
     {
-    add(num);
+    add(num, head);
     }
     else
     {
@@ -71,11 +72,11 @@ void insert(int num,pathlist *head)
         temp=temp->next;
     }
     if(c==0)
-        add(num);
-    else if(c<count())
-        addafter(num,++c);
+        add(num, head);
+    else if(c<count(head))
+        addafter(num,++c, head);
     else
-        append(num);
+        append(num, head);
     }
 }
  
@@ -114,7 +115,7 @@ int delete(int num,pathlist *head)
  
 void  display(pathlist *r)
 {
-    r=head;
+    r;//=head;
     if(r==NULL)
     {
     return;

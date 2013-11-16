@@ -1,4 +1,4 @@
 all: init
 
 init: solve.c
-	gcc -std=c99 -o solve solve.c
+	gcc -lpthread -lm -std=c99  -o solve linkedlist.c solve.c 
